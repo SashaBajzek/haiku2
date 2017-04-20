@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  haikuLine1: MyString
+  haikuLine2: MyString
+  haikuLine3: MyString
+  haikuTheme: MyString
+
+two:
+  haikuLine1: MyString
+  haikuLine2: MyString
+  haikuLine3: MyString
+  haikuTheme: MyString
