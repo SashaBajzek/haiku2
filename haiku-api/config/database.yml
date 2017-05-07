@@ -23,7 +23,12 @@ default: &default
 
 development:
   <<: *default
-  database: haiku-api_development
+  database: haiku_db
+  host: localhost
+  username: rails_haiku
+#	password: <%= ENV['DB_PASSWORD_HAIKU'] %>
+  password: StarsAreCool8008
+#  database: haiku-api_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -78,8 +83,16 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+#production:
+#  <<: *default
+#  database: haiku-api_production
+#  username: haiku-api
+#  password: <%= ENV['HAIKU-API_DATABASE_PASSWORD'] %>
+
+
 production:
-  <<: *default
-  database: haiku-api_production
-  username: haiku-api
-  password: <%= ENV['HAIKU-API_DATABASE_PASSWORD'] %>
+ <<: *default
+ database: haiku_db
+ host: localhost
+ username: rails_haiku
+ password: StarsAreCool8008

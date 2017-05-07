@@ -101,5 +101,6 @@
   },
   "eslintConfig": {
     "extends": "react-app"
-  }
+  },
+  "homepage": "https://haiku-for-you.sashabajzek.com/"
 }

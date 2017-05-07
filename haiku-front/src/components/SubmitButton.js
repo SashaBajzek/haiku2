@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 
 export class SubmitButton extends React.Component {
 	render() {
-		return <button className="submit" onClick={this.props.openModal}>SubmitButton</button>
+		return <button className="button--submit" onClick={this.props.openModal}>SUBMIT A HAIKU</button>
 	}
 }
 

@@ -1,6 +1,6 @@
 class HaikuApi {
 	static getAllHaikus() {
-		return fetch('http://localhost:3000/api/v1/haikus')
+		return fetch('https://haiku-api-rails.sashabajzek.com/api/v1/haikus')
 			.then(response => {
 				return response.json();
 			})
@@ -11,7 +11,7 @@ class HaikuApi {
 	
 	static createHaiku(haiku) {
 		const headers = Object.assign({'Content-Type': 'application/json'});
-		const request = new Request('http://localhost:3000/api/v1/haikus', {
+		const request = new Request('https://haiku-api-rails.sashabajzek.com/api/v1/haikus', {
 			method: 'POST',
 			headers: headers,
 			body: JSON.stringify(haiku)
@@ -29,7 +29,7 @@ class HaikuApi {
 	
 	static deleteHaiku(haikuId) {
 		const headers = Object.assign({'Content-Type': 'application/json'});
-		const request = new Request(`http://localhost:3000/api/v1/haikus/${haikuId}`, {
+		const request = new Request(`https://haiku-api-rails.sashabajzek.com/api/v1/haikus/${haikuId}`, {
 			method: 'DELETE',
 			headers: headers
 		});

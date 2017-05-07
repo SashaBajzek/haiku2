@@ -3,10 +3,10 @@ import React, {PropTypes} from 'react';
 export class Haiku extends React.Component {
 
 	render() {
-		return <main>
-			<h1 className="mainHaiku">{this.props.currentHaiku.get('haikuLine1')}</h1>
-			<h1 className="mainHaiku">{this.props.currentHaiku.get('haikuLine2')}</h1>
-			<h1 className="mainHaiku">{this.props.currentHaiku.get('haikuLine3')}</h1>
+		return <main className="haiku">
+			<h1 className="haiku__text">{this.props.currentHaiku.get('haikuLine1')}</h1>
+			<h1 className="haiku__text">{this.props.currentHaiku.get('haikuLine2')}</h1>
+			<h1 className="haiku__text">{this.props.currentHaiku.get('haikuLine3')}</h1>
 		</main>
 	}
 };

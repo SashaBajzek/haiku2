@@ -8,7 +8,9 @@ import React from 'react';
 export const RenderField = ({input, label, type, meta: { touched, error } }) => (
 	<div>
 		<div>
-			<input {...input} placeholder={label} type={type} />
+			<input {...input} placeholder={label} type={type} 
+			className={touched && (error && "input--error" )}
+			/>
 			{touched && (error && <span className="error__submit">{error}</span> )}
 		</div>
 	</div>

@@ -100,6 +100,10 @@ module.exports = {
     ],
     loaders: [
 			{
+        test: /\.scss$/,
+        loaders: ['style', 'css', 'sass']
+      },
+			{
         test: /\.(js|jsx)$/,
         include: paths.appSrc,
         loader: 'babel',

@@ -1,3 +1,5 @@
+@import './variables.scss';
+
 * {
 	box-sizing: border-box;
 }
@@ -13,40 +15,95 @@ html,
 	flex-direction: column;
 }
 
+header {
+	height: 36px;
+	position: relative;
+}
+
+header,
 .brand {
-	color: #A5A5A5;
+	background-color: $lightgrey;
+}
+
+.brand,
+.button--more {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 800;
+	margin: 0 auto;
+}
+
+.brand {
 	font-size: 30px;
-	height: 37px;
-	letter-spacing: 10px;
-	padding: 0 0 0 10px;
+	height: 36px;
+	letter-spacing: 5px;
 	text-align: center;
 	transition: all 1s ease-in-out;
-	width: 390px;
+	width: 100%;
 }
 
 .brand:hover {
-	transform: scale(1.02);
+	transform: scale(1.02 , 1);
 	transform-origin: center center;
 }
 
-.submit {
+.button--submit {
+	background-color: $lightgrey;
+	border: none;
 	color: #000000;
 	display: block;
 	font-family: 'Open Sans', sans-serif;
+	font-size: 16px;
 	font-weight: 300;
-	height: 37px;
-	margin: 25px auto 0;
-	width: 122px;
+	height: 30px;
+	left: 0;
+	margin: 0 auto 0;
+	padding: 2px 6px;
+	position: absolute;
+	right: 0;
+	top: 100%;
+	width: 180px;
+	z-index: 1;
 }
 
-main {
-	background-color: rgba(165, 165, 165, .8);
-	border-radius: 30px;
+.button--submit:hover,
+.button--submit:focus,
+.button--submit:active {
+	color: $lightgrey;
+	outline: none;
+}
+
+.button--submit::before {
+	border-left: 31px solid transparent;
+	border-right: 31px solid transparent;
+	border-top: 31px solid $lightgrey;
+	content: "";
+	height: 0;
+	left: 0;
+	margin-left: -31px;
+	position: absolute;
+	right: 0;
+	width: 242px;
+	top: -1px;
+	z-index: -1; /*use to push the trapezoid behind the text*/
+}
+
+.button--submit:hover::before,
+.button--submit:focus::before,
+.button--submit:active::before {
+	top: 0;
+}
+
+.haiku {
+	background: -moz-linear-gradient(left, rgba(224,224,224,0.5) 0%, rgba(224,224,224,0.95) 10%, rgba(224,224,224,0.95) 90%, rgba(224,224,224,0.5) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left, rgba(224,224,224,0.5) 0%,rgba(224,224,224,0.95) 10%,rgba(224,224,224,0.95) 90%,rgba(224,224,224,0.5) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right, rgba(224,224,224,0.5) 0%,rgba(224,224,224,0.95) 10%,rgba(224,224,224,0.95) 90%,rgba(224,224,224,0.5) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1ae0e0e0', endColorstr='#1ae0e0e0',GradientType=1 ); /* IE6-9 */
 	margin: auto;
 	transition: all 3s ease-in-out;
+	width: 100%;
 }
 
-.mainHaiku {
+.haiku__text {
 	color: #000000;
 	font-family: 'Merriweather', serif;
 	font-size: 30px;
@@ -54,442 +111,754 @@ main {
 	margin: auto;
 	padding: 10px;
 	text-align: center;
-}
-
-.brand, .more {
-	font-family: 'Open Sans', sans-serif;
-	font-weight: 800;
-	margin: 0 auto;
+	transition: color 3s ease-in-out;
 }
 
 footer {
+	background-color: $lightgrey;
 	display: flex;
 	flex-direction: row;
+	height: 10px;
 	justify-content: center;
+	position: relative;
+	z-index: 2;
 }
 
-.more {
+.button--more {
+	background-color: $lightgrey;
 	border: none;
+	bottom: 100%;
 	color: #000000;
 	height: 25px;
+	left: 0;
 	letter-spacing: 4px;
+	margin: auto;
 	padding: 2px 0 2px 4px;
+	position: absolute;
+	right: 0;
 	transition: all .1s ease;
 	width: 160px;
+	z-index: 1; /*use to push the trapezoid behind the text*/
 }
 
-.more:focus {
+.button--more:focus {
 	outline: none;
 }
 
-main:hover, 
-.more:hover {
+.button--more:hover,
+.button--more:focus,
+.button--more:active {
+	color: $lightgrey;
+}
+
+.button--more::after {
+	border-bottom: 26px solid $lightgrey;
+	border-left: 26px solid transparent;
+	border-right: 26px solid transparent;
+	bottom: -1px;
+	content: "";
+	height: 0;
+	left: 0;
+	margin-left: -26px;
+	position: absolute;
+	right: 0;
+	width: 212px;
+	z-index: -1; /*use to push the trapezoid behind the text*/
+}
+
+.button--more:hover::after,
+.button--more:focus::after,
+.button--more:active::after {
+	bottom: 0;
+}
+
+main:hover {
 	border: 1px solid;
 }
 
 .beachTheme {
-	background: skyblue;
-	background-image: url("../images/beach_sm.jpg");
+	background: url("../images/beach_sm.jpg") no-repeat center center fixed;
 }
 
-.beachTheme .brand:hover {
-	color: purple;
+.beachTheme .brand {
+	color: $beachTheme-color;
 }
 
-.beachTheme main:hover, 
-.beachTheme .more:hover {
-	border-color: rgba(128, 0, 128, .5);
+.beachTheme .haiku:hover {
+	background-color: rgba(128, 0, 128, .8);
+	border-color: rgba(128, 0, 128, .8);
 }
 
-.beachTheme main:hover,
-.beachTheme .more:active {
-	background-color: rgba(128, 0, 128, .5);
+.beachTheme .button--more:hover::after,
+.beachTheme .button--more:focus::after,
+.beachTheme .button--more:active::after {
+	border-bottom-color: $beachTheme-color;
+}
+
+.beachTheme .button--submit:hover,
+.beachTheme .button--submit:focus,
+.beachTheme .button--submit:active,
+.beachTheme .button--more:hover,
+.beachTheme .button--more:active {
+	background-color: $beachTheme-color;
+}
+
+.beachTheme .button--submit:hover::before,
+.beachTheme .button--submit:focus::before,
+.beachTheme .button--submit:active::before {
+	border-top-color: $beachTheme-color;
 }
 
 
 .careerTheme {
-	background: blue;
-	background-image: url("../images/career_sm.jpg");
+	background: url("../images/career_sm.jpg") no-repeat center center fixed;
 }
 
-.careerTheme .brand:hover {
-	color: fuchsia;
+.careerTheme .brand {
+	color: $careerTheme-color;
 }
 
-.careerTheme main:hover, 
-.careerTheme .more:hover {
-	border-color: rgba(255, 0, 255, .5);
+.careerTheme .haiku:hover {
+	background-color: rgba(255, 0, 255, .8);
+	border-color: rgba(255, 0, 255, .8);
 }
 
-.careerTheme main:hover,
-.careerTheme .more:active {
-	background-color: rgba(255, 0, 255, .5);
+.careerTheme .button--more:hover::after,
+.careerTheme .button--more:focus::after,
+.careerTheme .button--more:active::after {
+	border-bottom-color: $careerTheme-color;
+}
+
+.careerTheme .button--submit:hover,
+.careerTheme .button--submit:focus,
+.careerTheme .button--submit:active,
+.careerTheme .button--more:hover,
+.careerTheme .button--more:active {
+	background-color: $careerTheme-color;
+}
+
+.careerTheme .button--submit:hover::before,
+.careerTheme .button--submit:focus::before,
+.careerTheme .button--submit:active::before {
+	border-top-color: $careerTheme-color;
 }
 
 
-
-.catTheme {
-	background: blue;
-	background-image: url("../images/cat_sm.jpg");
+.catTheme {;
+	background: url("../images/cat_sm.jpg") no-repeat center center fixed;
 }
 
-.catTheme .brand:hover {
-	color: turquoise;
+.catTheme .brand {
+	color: $catTheme-color;
 }
 
-.catTheme main:hover, 
-.catTheme .more:hover {
-	border-color: rgba(64, 224, 208, .5);
+.catTheme .haiku:hover {
+	background-color: rgba(64, 224, 208, .8);
+	border-color: rgba(64, 224, 208, .8);
 }
 
-.catTheme main:hover,
-.catTheme .more:active{
-	background-color: rgba(64, 224, 208, .5);
+.catTheme .button--more:hover::after,
+.catTheme .button--more:focus::after,
+.catTheme .button--more:active::after {
+	border-bottom-color: $catTheme-color;
 }
 
+.catTheme .button--submit:hover,
+.catTheme .button--submit:focus,
+.catTheme .button--submit:active,
+.catTheme .button--more:hover,
+.catTheme .button--more:active {
+	background-color: $catTheme-color;
+}
+
+.catTheme .button--submit:hover::before,
+.catTheme .button--submit:focus::before,
+.catTheme .button--submit:active::before {
+	border-top-color: $catTheme-color;
+}
 
 
 .cheersTheme {
-	background: blue;
-	background-image: url("../images/cheers_sm.jpg");
+	background: url("../images/cheers_sm.jpg") no-repeat center center fixed;
 }
 
-.cheersTheme .brand:hover {
-	color: darkmagenta;
+.cheersTheme .brand {
+	color: $cheersTheme-color;
 }
 
-.cheersTheme main:hover,
-.cheersTheme .more:hover {
-	border-color: rgba(139, 0, 139, .5);
+.cheersTheme .haiku:hover {
+	background-color: rgba(139, 0, 139, .8);
+	border-color: rgba(139, 0, 139, .8);
 }
 
-.cheersTheme main:hover,
-.cheersTheme .more:active {
-	background-color: rgba(139, 0, 139, .5);
+.cheersTheme .button--more:hover::after,
+.cheersTheme .button--more:focus::after, 
+.cheersTheme .button--more:active::after {
+	border-bottom-color: $cheersTheme-color;
+}
+
+.cheersTheme .button--submit:hover,
+.cheersTheme .button--submit:focus,
+.cheersTheme .button--submit:active,
+.cheersTheme .button--more:hover,
+.cheersTheme .button--more:active {
+	background-color: $cheersTheme-color;
+}
+
+.cheersTheme .button--submit:hover::before,
+.cheersTheme .button--submit:focus::before,
+.cheersTheme .button--submit:active::before {
+	border-top-color: $cheersTheme-color;
 }
 
 
 .childhoodTheme {
-	background: blue;
-	background-image: url("../images/childhood_sm.jpg");
+	background: url("../images/childhood_sm.jpg") no-repeat center center fixed;
 }
 
-.childhoodTheme .brand:hover {
-	color: deeppink;
+.childhoodTheme .brand {
+	color: $childhoodTheme-color;
 }
 
-.childhoodTheme main:hover,
-.childhoodTheme .more:hover {
-	border-color: rgba(255, 20, 147, .5);
+.childhoodTheme .haiku:hover {
+	background-color: rgba(255, 20, 147, .8);
+	border-color: rgba(255, 20, 147, .8);
 }
 
-.childhoodTheme main:hover,
-.childhoodTheme .more:active{
-	background-color: rgba(255, 20, 147, .5);
+.childhoodTheme .button--more:hover::after,
+.childhoodTheme .button--more:focus::after,
+.childhoodTheme .button--more:active::after {
+	border-bottom-color: $childhoodTheme-color;
+}
+
+.childhoodTheme .button--submit:hover,
+.childhoodTheme .button--submit:focus,
+.childhoodTheme .button--submit:active,
+.childhoodTheme .button--more:hover,
+.childhoodTheme .button--more:active {
+	background-color: $childhoodTheme-color;
+}
+
+.childhoodTheme .button--submit:hover::before,
+.childhoodTheme .button--submit:focus::before,
+.childhoodTheme .button--submit:active::before {
+	border-top-color: $childhoodTheme-color;
 }
 
 
 .coffeeTheme {
-	background: blue;
-	background-image: url("../images/coffee_sm.jpg");
+	background: url("../images/coffee_sm.jpg") no-repeat center center fixed;
 }
 
-.coffeeTheme .brand:hover {
-	color: gold;
+.coffeeTheme .brand {
+	color: $coffeeTheme-color;
 }
 
-.coffeeTheme main:hover,
-.coffeeTheme .more:hover {
-	border-color: rgba(255, 215, 0, .5);
+.coffeeTheme .haiku:hover {
+	background-color: rgba(149, 85, 53, .8);
+	border-color: rgba(149, 85, 53, .8);
 }
 
-.coffeeTheme main:hover,
-.coffeeTheme .more:active{
-	background-color: rgba(255, 215, 0, .5);
+.coffeeTheme .button--more:hover::after,
+.coffeeTheme .button--more:focus::after,
+.coffeeTheme .button--more:active::after {
+	border-bottom-color: $coffeeTheme-color;
+}
+
+.coffeeTheme .button--submit:hover,
+.coffeeTheme .button--submit:focus,
+.coffeeTheme .button--submit:active,
+.coffeeTheme .button--more:hover,
+.coffeeTheme .button--more:active {
+	background-color: $coffeeTheme-color;
+}
+
+.coffeeTheme .button--submit:hover::before,
+.coffeeTheme .button--submit:focus::before,
+.coffeeTheme .button--submit:active::before {
+	border-top-color: $coffeeTheme-color;
 }
 
 
 .dogTheme {
-	background: blue;
-	background-image: url("../images/dog_sm.jpg");
+	background: url("../images/dog_sm.jpg") no-repeat center center fixed;
 }
 
-.dogTheme .brand:hover {
-	color: mediumorchid;
+.dogTheme .brand {
+	color: $dogTheme-color;
 }
 
-.dogTheme main:hover,
-.dogTheme .more:hover {
-	border-color: rgba(186, 85, 211, .5);
+.dogTheme .haiku:hover {
+	background-color: rgba(186, 85, 211, .8);
+	border-color: rgba(186, 85, 211, .8);
 }
 
-.dogTheme main:hover,
-.dogTheme .more:active {
-	background-color: rgba(186, 85, 211, .5);
+.dogTheme .button--more:hover::after,
+.dogTheme .button--more:focus::after, 
+.dogTheme .button--more:active::after {
+	border-bottom-color: $dogTheme-color;
+}
+
+.dogTheme .button--submit:hover,
+.dogTheme .button--submit:focus,
+.dogTheme .button--submit:active,
+.dogTheme .button--more:hover,
+.dogTheme .button--more:active {
+	background-color: $dogTheme-color;
+}
+
+.dogTheme .button--submit:hover::before,
+.dogTheme .button--submit:focus::before,
+.dogTheme .button--submit:active::before {
+	border-top-color: $dogTheme-color;
 }
 
 
 .fantasyTheme {
-	background: blue;
-	background-image: url("../images/fantasy_sm.jpg");
+	background: url("../images/fantasy_sm.jpg") no-repeat center center fixed;
 }
 
-.fantasyTheme .brand:hover {
-	color: orangered;
+.fantasyTheme .brand {
+	color: $fantasyTheme-color;
 }
 
-.fantasyTheme main:hover,
-.fantasyTheme .more:hover {
-	border-color: rgba(255, 69, 0, .5);
+.fantasyTheme .haiku:hover {
+	background-color: rgba(255, 69, 0, 0.8);
+	border-color: rgba(255, 69, 0, .8);
 }
 
-.fantasyTheme main:hover,
-.fantasyTheme .more:active {
-	background-color: rgba(255, 69, 0, .5);
+.fantasyTheme .button--more:hover::after,
+.fantasyTheme .button--more:focus::after,
+.fantasyTheme .button--more:active::after {
+	border-bottom-color: $fantasyTheme-color;
+}
+
+.fantasyTheme .button--submit:hover,
+.fantasyTheme .button--submit:focus,
+.fantasyTheme .button--submit:active,
+.fantasyTheme .button--more:hover,
+.fantasyTheme .button--more:active {
+	background-color: $fantasyTheme-color;
+}
+
+.fantasyTheme .button--submit:hover::before,
+.fantasyTheme .button--submit:focus::before,
+.fantasyTheme .button--submit:active::before {
+	border-top-color: $fantasyTheme-color;
 }
 
 
 .fitnessTheme {
-	background: blue;
-	background-image: url("../images/fitness_sm.jpg");
+	background: url("../images/fitness_sm.jpg") no-repeat center center fixed;
 }
 
-.fitnessTheme .brand:hover {
-	color: deeppink;
+.fitnessTheme .brand {
+	color: $fitnessTheme-color;
 }
 
-.fitnessTheme main:hover,
-.fitnessTheme .more:hover {
-	border-color: rgba(255, 20, 147, .5);
+.fitnessTheme .haiku:hover {
+	background-color: rgba(255, 20, 147, .8);
+	border-color: rgba(255, 20, 147, .8);
 }
 
-.fitnessTheme main:hover,
-.fitnessTheme .more:active{
-	background-color: rgba(255, 20, 147, .5);
+.fitnessTheme .button--more:hover::after,
+.fitnessTheme .button--more:focus::after,
+.fitnessTheme .button--more:active::after {
+	border-bottom-color: $fitnessTheme-color;
+}
+
+.fitnessTheme .button--submit:hover,
+.fitnessTheme .button--submit:focus,
+.fitnessTheme .button--submit:active,
+.fitnessTheme .button--more:hover,
+.fitnessTheme .button--more:active {
+	background-color: $fitnessTheme-color;
+}
+
+.fitnessTheme .button--submit:hover::before,
+.fitnessTheme .button--submit:focus::before,
+.fitnessTheme .button--submit:active::before {
+	border-top-color: $fitnessTheme-color;
 }
 
 
 .foodTheme {
-	background: blue;
-	background-image: url("../images/food_sm.jpg");
+	background: url("../images/food_sm.jpg") no-repeat center center fixed;
 }
 
-.foodTheme .brand:hover {
-	color: midnightblue;
+.foodTheme .brand {
+	color: $foodTheme-color;
 }
 
-.foodTheme main:hover,
-.foodTheme .more:hover {
-	border-color: rgba(25, 25, 112, .5);
+.foodTheme .haiku:hover {
+	background-color: rgba(25, 25, 112, .8);
+	border-color: rgba(25, 25, 112, .8);
 }
 
-.foodTheme main:hover,
-.foodTheme .more:active {
-	background-color: rgba(25, 25, 112, .5);
+.foodTheme .button--more:hover::after,
+.foodTheme .button--more:focus::after,
+.foodTheme .button--more:active::after {
+	border-bottom-color: $foodTheme-color;
+}
+
+.foodTheme .button--submit:hover,
+.foodTheme .button--submit:focus,
+.foodTheme .button--submit:active,
+.foodTheme .button--more:hover,
+.foodTheme .button--more:active {
+	background-color: $foodTheme-color;
+}
+
+.foodTheme .button--submit:hover::before,
+.foodTheme .button--submit:focus::before,
+.foodTheme .button--submit:active::before {
+	border-top-color: $foodTheme-color;
 }
 
 
 .happyTheme {
-	background: yellow;
-	background-image: url("../images/happy_sm.jpg");
+	background: url("../images/happy_sm.jpg") no-repeat center center fixed;
 }
 
-.happyTheme .brand:hover {
-	color: tomato;
+.happyTheme .brand {
+	color: $happyTheme-color;
 }
 
-.happyTheme main:hover,
-.happyTheme .more:hover {
-	border-color: rgba(255, 99, 71, .5);
+.happyTheme .haiku:hover {
+	background-color: rgba(255, 99, 71, .8);
+	border-color: rgba(255, 99, 71, .8);
 }
 
-.happyTheme main:hover,
-.happyTheme .more:active {
-	background-color: rgba(255, 99, 71, .5);
+.happyTheme .button--more:hover::after,
+.happyTheme .button--more:focus::after,
+.happyTheme .button--more:active::after {
+	border-bottom-color: $happyTheme-color;
+}
+
+.happyTheme .button--submit:hover,
+.happyTheme .button--submit:focus,
+.happyTheme .button--submit:active,
+.happyTheme .button--more:hover,
+.happyTheme .button--more:active {
+	background-color: $happyTheme-color;
+}
+
+.happyTheme .button--submit:hover::before,
+.happyTheme .button--submit:focus::before,
+.happyTheme .button--submit:active::before {
+	border-top-color: $happyTheme-color;
 }
 
 
 .musicTheme {
-	background: yellow;
-	background-image: url("../images/music_sm.jpg");
+	background: url("../images/music_sm.jpg") no-repeat center center fixed;
 }
 
-.musicTheme .brand:hover {
-	color: royalblue;
+.musicTheme .brand {
+	color: $musicTheme-color;
 }
 
-.musicTheme main:hover,
-.musicTheme .more:hover {
-	border-color: rgba(65, 105, 225, .5);
+.musicTheme .haiku:hover {
+	background-color: rgba(65, 105, 225, .8);
+	border-color: rgba(65, 105, 225, .8);
 }
 
-.musicTheme main:hover,
-.musicTheme .more:active{
-	background-color: rgba(65, 105, 225, .5);
+.musicTheme .button--more:hover::after,
+.musicTheme .button--more:focus::after,
+.musicTheme .button--more:active::after {
+	border-bottom-color: $musicTheme-color;
+}
+
+.musicTheme .button--submit:hover,
+.musicTheme .button--submit:focus,
+.musicTheme .button--submit:active,
+.musicTheme .button--more:hover,
+.musicTheme .button--more:active {
+	background-color: $musicTheme-color;
+}
+
+.musicTheme .button--submit:hover::before,
+.musicTheme .button--submit:focus::before,
+.musicTheme .button--submit:active::before {
+	border-top-color: $musicTheme-color;
 }
 
 
 .natureTheme {
-	background: yellow;
-	background-image: url("../images/nature_sm.jpg");
+	background: url("../images/nature_sm.jpg") no-repeat center center fixed;
 }
 
-.natureTheme .brand:hover {
-	color: crimson;
+.natureTheme .brand {
+	color: $natureTheme-color;
 }
 
-.natureTheme main:hover,
-.natureTheme .more:hover {
-	border-color: rgba(220, 20, 60, .5);
+.natureTheme .haiku:hover {
+	background-color: rgba(50, 89, 4, .8);
+	border-color: rgba(50, 89, 4, .8);
 }
 
-.natureTheme main:hover,
-.natureTheme .more:active {
-	background-color: rgba(220, 20, 60, .5);
+.natureTheme .button--more:hover::after,
+.natureTheme .button--more:focus::after,
+.natureTheme .button--more:active::after {
+	border-bottom-color: $natureTheme-color;
+}
+
+.natureTheme .button--submit:hover,
+.natureTheme .button--submit:focus,
+.natureTheme .button--submit:active,
+.natureTheme .button--more:hover,
+.natureTheme .button--more:active {
+	background-color: $natureTheme-color;
+}
+
+.natureTheme .button--submit:hover::before,
+.natureTheme .button--submit:focus::before,
+.natureTheme .button--submit:active::before {
+	border-top-color: $natureTheme-color;
 }
 
 
 .painTheme {
-	background: yellow;
-	background-image: url("../images/pain_sm.jpg");
+	background: url("../images/pain_sm.jpg") no-repeat center center fixed;
 }
 
-.painTheme .brand:hover {
-	color: firebrick;
+.painTheme .brand {
+	color: $painTheme-color;
 }
 
-.painTheme main:hover,
-.painTheme .more:hover {
-	border-color: rgba(178, 34, 34, .5);
+.painTheme .haiku:hover {
+	background-color: rgba(178, 34, 34, .8);
+	border-color: rgba(178, 34, 34, .8);
 }
 
-.painTheme main:hover,
-.painTheme .more:active {
-	background-color: rgba(220, 20, 60, .5);
+.painTheme .button--more:hover::after,
+.painTheme .button--more:focus::after,
+.painTheme .button--more:active::after {
+	border-bottom-color: $painTheme-color;
+}
+
+.painTheme .button--submit:hover,
+.painTheme .button--submit:focus,
+.painTheme .button--submit:active,
+.painTheme .button--more:hover,
+.painTheme .button--more:active {
+	background-color: $painTheme-color;
+}
+
+.painTheme .button--submit:hover::before,
+.painTheme .button--submit:focus::before,
+.painTheme .button--submit:active::before {
+	border-top-color: $painTheme-color;
 }
 
 
 .romanceTheme {
-	background: crimson;
-	background-image: url("../images/romance_sm.jpg");
+	background: url("../images/romance_sm.jpg") no-repeat center center fixed;
 }
 
-.romanceTheme .brand:hover {
-	color: teal;
+.romanceTheme .brand {
+	color: $romanceTheme-color;
 }
 
-.romanceTheme main:hover,
-.romanceTheme .more:hover {
-	border-color: rgba(0, 128, 128, .5);
+.romanceTheme .haiku:hover {
+	background-color: rgba(0, 128, 128, .8);
+	border-color: rgba(0, 128, 128, .8);
 }
 
-.romanceTheme main:hover,
-.romanceTheme .more:active {
-	background-color: rgba(0, 128, 128, .5);
+.romanceTheme .button--more:hover::after,
+.romanceTheme .button--more:focus::after,
+.romanceTheme .button--more:active::after {
+	border-bottom-color: $romanceTheme-color;
+}
+
+.romanceTheme .button--submit:hover,
+.romanceTheme .button--submit:focus,
+.romanceTheme .button--submit:active,
+.romanceTheme .button--more:hover,
+.romanceTheme .button--more:active {
+	background-color: $romanceTheme-color;
+}
+
+.romanceTheme .button--submit:hover::before,
+.romanceTheme .button--submit:focus::before,
+.romanceTheme .button--submit:active::before {
+	border-top-color: $romanceTheme-color;
 }
 
 
 .somberTheme {
-	background: grey;
-	background-image: url("../images/somber_sm.jpg");
+	background: url("../images/somber_sm.jpg") no-repeat center center fixed;
 }
 
-.somberTheme .brand:hover {
-	color: lightcoral;
+.somberTheme .brand {
+	color: $somberTheme-color;
 }
 
-.somberTheme main:hover,
-.somberTheme more:hover {
-	border-color: rgba(240, 128, 128, .5);
+.somberTheme .haiku:hover {
+	background-color: rgba(240, 128, 128, .8);
+	border-color: rgba(240, 128, 128, .8);
 }
 
-.somberTheme main:hover,
-.somberTheme .more:active {
-	background-color: rgba(240, 128, 128, .5);
+.somberTheme .button--more:hover::after,
+.somberTheme .button--more:focus::after,
+.somberTheme .button--more:active::after {
+	border-bottom-color: $somberTheme-color;
+}
+
+.somberTheme .button--submit:hover,
+.somberTheme .button--submit:focus,
+.somberTheme .button--submit:active,
+.somberTheme .button--more:hover,
+.somberTheme .button--more:active {
+	background-color: $somberTheme-color;
+}
+
+.somberTheme .button--submit:hover::before,
+.somberTheme .button--submit:focus::before,
+.somberTheme .button--submit:active::before {
+	border-top-color: $somberTheme-color;
 }
 
 
 .stormTheme {
-	background: grey;
-	background-image: url("../images/storm_sm.jpg");
+	background: url("../images/storm_sm.jpg") no-repeat center center fixed;
 }
 
-.stormTheme .brand:hover {
-	color: orangered;
+.stormTheme .brand {
+	color: $stormTheme-color;
 }
 
-.stormTheme main:hover,
-.stormTheme .more:hover {
-	border-color: rgba(255, 69, 0, .5);
+.stormTheme .haiku:hover {
+	background-color: rgba(255, 69, 0, .8);
+	border-color: rgba(255, 69, 0, .8);
 }
 
-.stormTheme main:hover,
-.stormTheme .more:active{
-	background-color: rgba(255, 69, 0, .5);
+.stormTheme .button--more:hover::after,
+.stormTheme .button--more:focus::after,
+.stormTheme .button--more:active::after {
+	border-bottom-color: $stormTheme-color;
+}
+
+.stormTheme .button--submit:hover,
+.stormTheme .button--submit:focus,
+.stormTheme .button--submit:active,
+.stormTheme .button--more:hover,
+.stormTheme .button--more:active {
+	background-color: $stormTheme-color;
+}
+
+.stormTheme .button--submit:hover::before,
+.stormTheme .button--submit:focus::before,
+.stormTheme .button--submit:active::before {
+	border-top-color: $stormTheme-color;
 }
 
 
 .technologyTheme {
-	background: grey;
-	background-image: url("../images/technology_sm.jpg");
+	background: url("../images/technology_sm.jpg") no-repeat center center fixed;
 }
 
-.technologyTheme .brand:hover {
-	color: springgreen;
+.technologyTheme .brand {
+	color: $technologyTheme-color;
 }
 
-.technologyTheme main:hover,
-.technologyTheme .more:hover {
-	border-color: rgba(0, 255, 127, .5);
+.technologyTheme .haiku:hover {
+	background-color: rgba(0, 255, 127, .8);
+	border-color: rgba(0, 255, 127, .8);
 }
 
-.technologyTheme main:hover,
-.technologyTheme .more:active {
-	background-color: rgba(0, 255, 127, .5);
+.technologyTheme .button--more:hover::after,
+.technologyTheme .button--more:focus::after,
+.technologyTheme .button--more:active::after {
+	border-bottom-color: $technologyTheme-color;
+}
+
+.technologyTheme .button--submit:hover,
+.technologyTheme .button--submit:focus,
+.technologyTheme .button--submit:active,
+.technologyTheme .button--more:hover,
+.technologyTheme .button--more:active {
+	background-color: $technologyTheme-color;
+}
+
+.technologyTheme .button--submit:hover::before,
+.technologyTheme .button--submit:focus::before,
+.technologyTheme .button--submit:active::before {
+	border-top-color: $technologyTheme-color;
 }
 
 
 .travelTheme {
-	background: grey;
-	background-image: url("../images/travel_sm.jpg");
+	background: url("../images/travel_sm.jpg") no-repeat center center fixed;
 }
 
-.travelTheme .brand:hover {
-	color: crimson;
+.travelTheme .brand {
+	color: $travelTheme-color;
 }
 
-.travelTheme main:hover,
-.travelTheme .more:hover {
-	border-color: rgba(220, 20, 60, .5);
+.travelTheme .haiku:hover {
+	background-color: rgba(220, 20, 60, .8);
+	border-color: rgba(220, 20, 60, .8);
 }
 
-.travelTheme main:hover,
-.travelTheme .more:active {
-	background-color: rgba(220, 20, 60, .5);
+.travelTheme .button--more:hover::after,
+.travelTheme .button--more:focus::after,
+.travelTheme .button--more:active::after {
+	border-bottom-color: $travelTheme-color;
+}
+
+.travelTheme .button--submit:hover,
+.travelTheme .button--submit:focus,
+.travelTheme .button--submit:active,
+.travelTheme .button--more:hover,
+.travelTheme .button--more:active {
+	background-color: $travelTheme-color;
+}
+
+.travelTheme .button--submit:hover::before,
+.travelTheme .button--submit:focus::before,
+.travelTheme .button--submit:active::before {
+	border-top-color: $travelTheme-color;
 }
 
 
 .whimsyTheme {
-	background: purple;
-	background-image: url("../images/whimsy_sm.jpg");
+	background: url("../images/whimsy_sm.jpg") no-repeat center center fixed;
 }
 
-.whimsyTheme .brand:hover {
-	color: tomato;
+.whimsyTheme .brand {
+	color: $whimsyTheme-color;
 }
 
-.whimsyTheme main:hover
-.whimsyTheme more:hover {
-	border-color: rgba(255, 99, 71, .5);
+.whimsyTheme .haiku:hover {
+	background-color: rgba(255, 99, 71, .8);
+	border-color: rgba(255, 99, 71, .8);
 }
 
-.whimsyTheme main:hover,
-.whimsyTheme .more:active{
-	background-color: rgba(255, 99, 71, .5);
+.whimsyTheme .button--more:hover::after,
+.whimsyTheme .button--more:focus::after,
+.whimsyTheme .button--more:active::after {
+	border-bottom-color: $whimsyTheme-color;
+}
+
+.whimsyTheme .button--submit:hover,
+.whimsyTheme .button--submit:focus,
+.whimsyTheme .button--submit:active,
+.whimsyTheme .button--more:hover,
+.whimsyTheme .button--more:active {
+	background-color: $whimsyTheme-color;
+}
+
+.whimsyTheme .button--submit:hover::before,
+.whimsyTheme .button--submit:focus::before,
+.whimsyTheme .button--submit:active::before {
+	border-top-color: $whimsyTheme-color;
 }
 
 .themes {
-	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
 	background-size: cover;
 }
 
@@ -525,13 +894,6 @@ main:hover,
 
 /* Modal Classes */
 
-
-/* Class for react-bootstrap modal */
-.modal-container {
-  position: relative;
-}
-
-/* Class for react-bootstrap modal */
 .modal-container .modal, .modal-container .modal-backdrop {
   position: absolute;
 }
@@ -561,8 +923,33 @@ main:hover,
 }
 
 .modal-footer button {
-	font-family: 'Open Sans', sans-serif;
-	font-weight: 300;
+	background-color: rgb(204, 204, 204);
+	border: 1px solid rgb(40, 40, 40);
+	color: rgb(40, 40, 40);
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	margin: 2px;
+	padding: 3px 10px;
+}
+
+.submit-modal__button--close:hover {
+	background-color: firebrick;
+	border-color: firebrick;
+	color: $lightgrey;
+}
+
+.submit-modal__button--submit:hover {
+	background-color: rgba(50, 89, 4, 1);
+	border-color: rgba(50, 89, 4, 1);
+	color: $lightgrey;
+}
+
+.submit-modal__button--submit:disabled:hover {
+	background-color: rgb(204, 204, 204);
+	border-color: firebrick;
+	color: rgb(40, 40, 40);
+	cursor: not-allowed;
 }
 
 .form-group label {
@@ -570,11 +957,7 @@ main:hover,
 	font-weight: 800;
 }
 
-.inputValid {
-	outline-color: green;
-}
-
-.inputInvalid {
+.input--error {
 	outline-color: red;
 }
 
@@ -584,7 +967,33 @@ main:hover,
 	justify-content: center;
 }
 
-@media only screen and (min-width: 640px) {
+
+
+
+
+
+
+/* Extra small screen / phone */
+@media only screen and (min-width: 480px) {
+	
+	.brand {
+		letter-spacing: 10px;
+		padding: 0;
+		width: 450px;
+	}
+	
+	.haiku__text {
+		font-size: 35px;
+	}
+	
+	.modal-body input {
+		width: 75%;
+	}
+	
+}
+
+/* Small screen / tablet */
+@media only screen and (min-width: 768px) {
 	
 	header {
 		display: flex;
@@ -599,128 +1008,621 @@ main:hover,
 		transition: all 1s ease-in-out;
 	}
 	
+	.brand::after {
+		border-left: none;
+		border-right: 10px solid transparent;
+		border-top: 10px solid $lightgrey;
+		content: "";
+		height: 0;
+		left: 0;
+		margin-left: 0;
+		margin-right: auto;
+		position: absolute;
+		right: 0;
+		top: 35px;
+		width: 460px;
+	}
+	
 	.brand:hover {
-		transform: scale(1.1);
+		transform: scale(1.1, 1);
 		transform-origin: center left;
 	}
 	
-	.submit {
+	.brand:hover::after {
+		border-top-color: $lightgrey;
+	}
+	
+	.button--submit {
+		border-left: 1px solid black;
+		border-right: 1px solid black;
 		display: inline-block;
-		margin: 0;
-}
+		margin: auto 10px;
+		position: static;
+	}
+	
+	.button--submit::before {
+		border-left: none;
+		border-right: none;
+		border-top: none;
+	}
+	
+	.haiku {
+		background: -moz-linear-gradient(left, rgba(224,224,224,0.1) 0%, rgba(224,224,224,0.95) 20%, rgba(224,224,224,0.95) 80%, rgba(224,224,224,0.1) 100%); /* FF3.6-15 */
+		background: -webkit-linear-gradient(left, rgba(224,224,224,0.1) 0%,rgba(224,224,224,0.95) 20%,rgba(224,224,224,0.95) 80%,rgba(224,224,224,0.1) 100%); /* Chrome10-25,Safari5.1-6 */
+		background: linear-gradient(to right, rgba(224,224,224,0.1) 0%,rgba(224,224,224,0.95) 20%,rgba(224,224,224,0.95) 80%,rgba(224,224,224,0.1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1ae0e0e0', endColorstr='#1ae0e0e0',GradientType=1 ); /* IE6-9 */
+	}
 
-	.mainHaiku {
+	.haiku__text {
+		font-size: 45px;
 		padding: 25px;
 	}
 	
-	.more {
-		margin: 0;
+	.button--more {
+		margin: 0 50px;
+		z-index: 1; /*use to push the trapezoid behind the text*/
 	}
 	
 	footer {
 		justify-content: flex-start;
 	}
 	
+	.button--more::after {
+		border-bottom: 26px solid $lightgrey;
+		border-left: none;
+		border-right: 26px solid transparent;
+		bottom: -1px;
+		content: "";
+		height: 0;
+		margin-left: -50px;
+		margin-right: auto;
+		position: absolute;
+		width: 252px;
+		z-index: -1; /*use to push the trapezoid behind the text*/
+	}
+	
 	
 	
 	.beachTheme {
-		background-image: url("../images/beach.jpg");
+		background: url("../images/beach.jpg") no-repeat center center fixed;
 	}
 
 	.careerTheme {
-		background-image: url("../images/career.jpg");
+		background: url("../images/career.jpg") no-repeat center center fixed;
 	}
 
 	.catTheme {
-		background-image: url("../images/cat.jpg");
+		background: url("../images/cat.jpg") no-repeat center center fixed;
 	}
 
 	.cheersTheme {
-		background-image: url("../images/cheers.jpg");
+		background: url("../images/cheers.jpg") no-repeat center center fixed;
 	}
 
 	.childhoodTheme {
-		background-image: url("../images/childhood.jpg");
+		background: url("../images/childhood.jpg") no-repeat center center fixed;
 	}
 
 	.coffeeTheme {
-		background-image: url("../images/coffee.jpg");
+		background: url("../images/coffee.jpg") no-repeat center center fixed;
 	}
 
 	.dogTheme {
-		background-image: url("../images/dog.jpg");
+		background: url("../images/dog.jpg") no-repeat center center fixed;
 	}
 
 	.fantasyTheme {
-		background-image: url("../images/fantasy.jpg");
+		background: url("../images/fantasy.jpg") no-repeat center center fixed;
 	}
 
 	.fitnessTheme {
-		background-image: url("../images/fitness.jpg");
+		background: url("../images/fitness.jpg") no-repeat center center fixed;
 	}
 
 	.foodTheme {
-		background-image: url("../images/food.jpg");
+		background: url("../images/food.jpg") no-repeat center center fixed;
 	}
 
 	.happyTheme {
-		background-image: url("../images/happy.jpg");
+		background: url("../images/happy.jpg") no-repeat center center fixed;
 	}
 
 	.musicTheme {
-		background-image: url("../images/music.jpg");
+		background: url("../images/music.jpg") no-repeat center center fixed;
 	}
 
 	.natureTheme {
-		background-image: url("../images/nature.jpg");
+		background: url("../images/nature.jpg") no-repeat center center fixed;
 	}
 
 	.painTheme {
-		background-image: url("../images/pain.jpg");
+		background: url("../images/pain.jpg") no-repeat center center fixed;
 	}
 
 	.romanceTheme {
-		background-image: url("../images/romance.jpg");
+		background: url("../images/romance.jpg") no-repeat center center fixed;
 	}
 
 	.somberTheme {
-		background-image: url("../images/somber.jpg");
+		background: url("../images/somber.jpg") no-repeat center center fixed;
 	}
 
 	.stormTheme {
-		background-image: url("../images/storm.jpg");
+		background: url("../images/storm.jpg") no-repeat center center fixed;
 	}
 
 	.technologyTheme {
-		background-image: url("../images/technology.jpg");
+		background: url("../images/technology.jpg") no-repeat center center fixed;
 	}
 
 	.travelTheme {
-		background-image: url("../images/travel.jpg");
+		background: url("../images/travel.jpg") no-repeat center center fixed;
 	}
 
 	.whimsyTheme {
-		background-image: url("../images/whimsy.jpg");
+		background: url("../images/whimsy.jpg") no-repeat center center fixed;
+	}
+	
+	.themes {
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
 	}
 
-
-	
 }
 
-@media only screen and (min-width: 450px) {
+
+
+@media (pointer:coarse), (hover:none), (hover:on-demand) {
+    /* Removing the :hover coloring since IOS keeps the hover turned on */
 	
-	.brand {
-		letter-spacing: 15px;
-		padding: 0;
-		width: 450px;
+	.button--more:hover::after,
+	.button--more:focus::after {
+		bottom: -1px;
 	}
 	
-	.mainHaiku {
-		font-size: 36px;
+	.button--more:active::after {
+		bottom: 0;
 	}
 	
-	.modal-body input {
-		width: 75%;
+	.beachTheme .button--more:hover::after,
+	.beachTheme .button--more:focus::after {
+		border-bottom-color: $lightgrey;
+		color: #000000;
+	}
+
+	.beachTheme .button--more:hover {
+		background-color: $lightgrey;
+		color: #000000;
+	}
+	
+	.beachTheme .button--more:active::after {
+		border-bottom-color: $beachTheme-color;
+		color: $lightgrey;
+	}
+
+	.beachTheme .button--more:active {
+		background-color: $beachTheme-color;
+		color: $lightgrey;
+	}
+
+
+	.careerTheme .button--more:hover::after,
+	.careerTheme .button--more:focus::after {
+		border-bottom-color: $lightgrey;
+		color: #000000;
+	}
+
+	.careerTheme .button--more:hover {
+		background-color: $lightgrey;
+		color: #000000;
+	}
+	
+	.careerTheme .button--more:active::after {
+		border-bottom-color: $careerTheme-color;
+		color: $lightgrey;
+	}
+
+	.careerTheme .button--more:active {
+		background-color: $careerTheme-color;
+		color: $lightgrey;
+	}
+
+
+	.catTheme .button--more:hover::after,
+	.catTheme .button--more:focus::after {
+		border-bottom-color: $lightgrey;
+		color: #000000;
+	}
+
+	.catTheme .button--more:hover {
+		background-color: $lightgrey;
+		color: #000000;
+	}
+	
+	.catTheme .button--more:active::after {
+		border-bottom-color: $catTheme-color;
+		color: $lightgrey;
+	}
+
+	.catTheme .button--more:active {
+		background-color: $catTheme-color;
+		color: $lightgrey;
+	}
+
+
+	.cheersTheme .button--more:hover::after,
+	.cheersTheme .button--more:focus::after {
+		border-bottom-color: $lightgrey;
+		color: #000000;
+	}
+
+	.cheersTheme .button--more:hover {
+		background-color: $lightgrey;
+		color: #000000;
+	}
+	
+	.cheersTheme .button--more:active::after {
+		border-bottom-color: $cheersTheme-color;
+		color: $lightgrey;
+	}
+
+	.cheersTheme .button--more:active {
+		background-color: $cheersTheme-color;
+		color: $lightgrey;
+	}
+
+
+	.childhoodTheme .button--more:hover::after,
+	.childhoodTheme .button--more:focus::after {
+		border-bottom-color: $lightgrey;
+		color: #000000;
+	}
+
+	.childhoodTheme .button--more:hover {
+		background-color: $lightgrey;
+		color: #000000;
+	}
+	
+	.childhoodTheme .button--more:active::after {
+		border-bottom-color: $childhoodTheme-color;
+		color: $lightgrey;
+	}
+
+	.childhoodTheme .button--more:active {
+		background-color: $childhoodTheme-color;
+		color: $lightgrey;
+	}
+
+
+	.coffeeTheme .button--more:hover::after,
+	.coffeeTheme .button--more:focus::after {
+		border-bottom-color: $lightgrey;
+		color: #000000;
+	}
+
+	.coffeeTheme .button--more:hover {
+		background-color: $lightgrey;
+		color: #000000;
+	}
+	
+	.coffeeTheme .button--more:active::after {
+		border-bottom-color: $coffeeTheme-color;
+		color: $lightgrey;
+	}
+
+	.coffeeTheme .button--more:active {
+		background-color: $coffeeTheme-color;
+		color: $lightgrey;
+	}
+	
+
+	.dogTheme .button--more:hover::after,
+	.dogTheme .button--more:focus::after {
+		border-bottom-color: $lightgrey;
+		color: #000000;
+	}
+
+	.dogTheme .button--more:hover {
+		background-color: $lightgrey;
+		color: #000000;
+	}
+	
+	.dogTheme .button--more:active::after {
+		border-bottom-color: $dogTheme-color;
+		color: $lightgrey;
+	}
+
+	.dogTheme .button--more:active {
+		background-color: $dogTheme-color;
+		color: $lightgrey;
+	}
+	
+
+	.fantasyTheme .button--more:hover::after,
+	.fantasyTheme .button--more:focus::after {
+		border-bottom-color: $lightgrey;
+		color: #000000;
+	}
+
+	.fantasyTheme .button--more:hover {
+		background-color: $lightgrey;
+		color: #000000;
+	}
+	
+	.fantasyTheme .button--more:active::after {
+		border-bottom-color: $fantasyTheme-color;
+		color: $lightgrey;
+	}
+
+	.fantasyTheme .button--more:active {
+		background-color: $fantasyTheme-color;
+		color: $lightgrey;
+	}
+
+
+	.fitnessTheme .button--more:hover::after,
+	.fitnessTheme .button--more:focus::after {
+		border-bottom-color: $lightgrey;
+		color: #000000;
+	}
+
+	.fitnessTheme .button--more:hover {
+		background-color: $lightgrey;
+		color: #000000;
+	}
+	
+	.fitnessTheme .button--more:active::after {
+		border-bottom-color: $fitnessTheme-color;
+		color: $lightgrey;
+	}
+
+	.fitnessTheme .button--more:active {
+		background-color: $fitnessTheme-color;
+		color: $lightgrey;
+	}
+
+
+	.foodTheme .button--more:hover::after,
+	.foodTheme .button--more:focus::after {
+		border-bottom-color: $lightgrey;
+		color: #000000;
+	}
+
+	.foodTheme .button--more:hover {
+		background-color: $lightgrey;
+		color: #000000;
+	}
+	
+	.foodTheme .button--more:active::after {
+		border-bottom-color: $foodTheme-color;
+		color: $lightgrey;
+	}
+
+	.foodTheme .button--more:active {
+		background-color: $foodTheme-color;
+		color: $lightgrey;
+	}
+
+
+	.happyTheme .button--more:hover::after,
+	.happyTheme .button--more:focus::after {
+		border-bottom-color: $lightgrey;
+		color: #000000;
+	}
+
+	.happyTheme .button--more:hover {
+		background-color: $lightgrey;
+		color: #000000;
+	}
+	
+	.happyTheme .button--more:active::after {
+		border-bottom-color: $happyTheme-color;
+		color: $lightgrey;
+	}
+
+	.happyTheme .button--more:active {
+		background-color: $happyTheme-color;
+		color: $lightgrey;
+	}
+
+
+	.musicTheme .button--more:hover::after,
+	.musicTheme .button--more:focus::after {
+		border-bottom-color: $lightgrey;
+		color: #000000;
+	}
+
+	.musicTheme .button--more:hover {
+		background-color: $lightgrey;
+		color: #000000;
+	}
+	
+	.musicTheme .button--more:active::after {
+		border-bottom-color: $musicTheme-color;
+		color: $lightgrey;
+	}
+
+	.musicTheme .button--more:active {
+		background-color: $musicTheme-color;
+		color: $lightgrey;
+	}
+
+
+	.natureTheme .button--more:hover::after,
+	.natureTheme .button--more:focus::after {
+		border-bottom-color: $lightgrey;
+		color: #000000;
+	}
+
+	.natureTheme .button--more:hover {
+		background-color: $lightgrey;
+		color: #000000;
+	}
+	
+	.natureTheme .button--more:active::after {
+		border-bottom-color: $natureTheme-color;
+		color: $lightgrey;
+	}
+
+	.natureTheme .button--more:active {
+		background-color: $natureTheme-color;
+		color: $lightgrey;
+	}
+
+
+	.painTheme .button--more:hover::after,
+	.painTheme .button--more:focus::after {
+		border-bottom-color: $lightgrey;
+		color: #000000;
+	}
+
+	.painTheme .button--more:hover {
+		background-color: $lightgrey;
+		color: #000000;
+	}
+	
+	.painTheme .button--more:active::after {
+		border-bottom-color: $painTheme-color;
+		color: $lightgrey;
+	}
+
+	.painTheme .button--more:active {
+		background-color: $painTheme-color;
+		color: $lightgrey;
+	}
+
+
+	.romanceTheme .button--more:hover::after,
+	.romanceTheme .button--more:focus::after {
+		border-bottom-color: $lightgrey;
+		color: #000000;
+	}
+
+	.romanceTheme .button--more:hover {
+		background-color: $lightgrey;
+		color: #000000;
+	}
+	
+	.romanceTheme .button--more:active::after {
+		border-bottom-color: $romanceTheme-color;
+		color: $lightgrey;
+	}
+
+	.romanceTheme .button--more:active {
+		background-color: $romanceTheme-color;
+		color: $lightgrey;
+	}
+
+
+	.somberTheme .button--more:hover::after,
+	.somberTheme .button--more:focus::after {
+		border-bottom-color: $lightgrey;
+		color: #000000;
+	}
+
+	.somberTheme .button--more:hover {
+		background-color: $lightgrey;
+		color: #000000;
+	}
+	
+	.somberTheme .button--more:active::after {
+		border-bottom-color: $somberTheme-color;
+		color: $lightgrey;
+	}
+
+	.somberTheme .button--more:active {
+		background-color: $somberTheme-color;
+		color: $lightgrey;
+	}
+
+
+	.stormTheme .button--more:hover::after,
+	.stormTheme .button--more:focus::after {
+		border-bottom-color: $lightgrey;
+		color: #000000;
+	}
+
+	.stormTheme .button--more:hover {
+		background-color: $lightgrey;
+		color: #000000;
+	}
+	
+	.stormTheme .button--more:active::after {
+		border-bottom-color: $stormTheme-color;
+		color: $lightgrey;
+	}
+
+	.stormTheme .button--more:active {
+		background-color: $stormTheme-color;
+		color: $lightgrey;
+	}
+
+
+	.technologyTheme .button--more:hover::after,
+	.technologyTheme .button--more:focus::after {
+		border-bottom-color: $lightgrey;
+		color: #000000;
+	}
+
+	.technologyTheme .button--more:hover {
+		background-color: $lightgrey;
+		color: #000000;
+	}
+	
+	.technologyTheme .button--more:active::after {
+		border-bottom-color: $technologyTheme-color;
+		color: $lightgrey;
+	}
+
+	.technologyTheme .button--more:active {
+		background-color: $technologyTheme-color;
+		color: $lightgrey;
+	}
+
+
+	.travelTheme .button--more:hover::after,
+	.travelTheme .button--more:focus::after {
+		border-bottom-color: $lightgrey;
+		color: #000000;
+	}
+
+	.travelTheme .button--more:hover {
+		background-color: $lightgrey;
+		color: #000000;
+	}
+	
+	.travelTheme .button--more:active::after {
+		border-bottom-color: $travelTheme-color;
+		color: $lightgrey;
+	}
+
+	.travelTheme .button--more:active {
+		background-color: $travelTheme-color;
+		color: $lightgrey;
+	}
+
+
+	.whimsyTheme .button--more:hover::after,
+	.whimsyTheme .button--more:focus::after {
+		border-bottom-color: $lightgrey;
+		color: #000000;
+	}
+
+	.whimsyTheme .button--more:hover {
+		background-color: $lightgrey;
+		color: #000000;
+	}
+	
+	.whimsyTheme .button--more:active::after {
+		border-bottom-color: $whimsyTheme-color;
+		color: $lightgrey;
+	}
+
+	.whimsyTheme .button--more:active {
+		background-color: $whimsyTheme-color;
+		color: $lightgrey;
 	}
 	
 }
