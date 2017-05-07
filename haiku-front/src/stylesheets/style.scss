@@ -1187,12 +1187,69 @@ main:hover {
 	}
 	
 	.beachTheme .button--more:hover::after,
-	.beachTheme .button--more:focus::after {
+	.beachTheme .button--more:focus::after,
+	.careerTheme .button--more:hover::after,
+	.careerTheme .button--more:focus::after,
+	.catTheme .button--more:hover::after,
+	.catTheme .button--more:focus::after,
+	.cheersTheme .button--more:hover::after,
+	.cheersTheme .button--more:focus::after,
+	.childhoodTheme .button--more:hover::after,
+	.childhoodTheme .button--more:focus::after,
+	.coffeeTheme .button--more:hover::after,
+	.coffeeTheme .button--more:focus::after,
+	.dogTheme .button--more:hover::after,
+	.dogTheme .button--more:focus::after,
+	.fantasyTheme .button--more:hover::after,
+	.fantasyTheme .button--more:focus::after,
+	.fitnessTheme .button--more:hover::after,
+	.fitnessTheme .button--more:focus::after,
+	.foodTheme .button--more:hover::after,
+	.foodTheme .button--more:focus::after,
+	.happyTheme .button--more:hover::after,
+	.happyTheme .button--more:focus::after,
+	.musicTheme .button--more:hover::after,
+	.musicTheme .button--more:focus::after,
+	.natureTheme .button--more:hover::after,
+	.natureTheme .button--more:focus::after,
+	.painTheme .button--more:hover::after,
+	.painTheme .button--more:focus::after,
+	.romanceTheme .button--more:hover::after,
+	.romanceTheme .button--more:focus::after,
+	.somberTheme .button--more:hover::after,
+	.somberTheme .button--more:focus::after,
+	.stormTheme .button--more:hover::after,
+	.stormTheme .button--more:focus::after,
+	.technologyTheme .button--more:hover::after,
+	.technologyTheme .button--more:focus::after,
+	.travelTheme .button--more:hover::after,
+	.travelTheme .button--more:focus::after,
+	.whimsyTheme .button--more:hover::after,
+	.whimsyTheme .button--more:focus::after {
 		border-bottom-color: $lightgrey;
 		color: #000000;
 	}
 
-	.beachTheme .button--more:hover {
+	.beachTheme .button--more:hover,
+	.careerTheme .button--more:hover,
+	.catTheme .button--more:hover,
+	.cheersTheme .button--more:hover,
+	.childhoodTheme .button--more:hover,
+	.coffeeTheme .button--more:hover,
+	.dogTheme .button--more:hover,
+	.fantasyTheme .button--more:hover,
+	.fitnessTheme .button--more:hover,
+	.foodTheme .button--more:hover,
+	.happyTheme .button--more:hover,
+	.musicTheme .button--more:hover,
+	.natureTheme .button--more:hover,
+	.painTheme .button--more:hover,
+	.romanceTheme .button--more:hover,
+	.somberTheme .button--more:hover,
+	.stormTheme .button--more:hover,
+	.technologyTheme .button--more:hover,
+	.travelTheme .button--more:hover,
+	.whimsyTheme .button--more:hover {
 		background-color: $lightgrey;
 		color: #000000;
 	}
@@ -1207,17 +1264,6 @@ main:hover {
 		color: $lightgrey;
 	}
 
-
-	.careerTheme .button--more:hover::after,
-	.careerTheme .button--more:focus::after {
-		border-bottom-color: $lightgrey;
-		color: #000000;
-	}
-
-	.careerTheme .button--more:hover {
-		background-color: $lightgrey;
-		color: #000000;
-	}
 	
 	.careerTheme .button--more:active::after {
 		border-bottom-color: $careerTheme-color;
@@ -1229,17 +1275,6 @@ main:hover {
 		color: $lightgrey;
 	}
 
-
-	.catTheme .button--more:hover::after,
-	.catTheme .button--more:focus::after {
-		border-bottom-color: $lightgrey;
-		color: #000000;
-	}
-
-	.catTheme .button--more:hover {
-		background-color: $lightgrey;
-		color: #000000;
-	}
 	
 	.catTheme .button--more:active::after {
 		border-bottom-color: $catTheme-color;
@@ -1251,17 +1286,6 @@ main:hover {
 		color: $lightgrey;
 	}
 
-
-	.cheersTheme .button--more:hover::after,
-	.cheersTheme .button--more:focus::after {
-		border-bottom-color: $lightgrey;
-		color: #000000;
-	}
-
-	.cheersTheme .button--more:hover {
-		background-color: $lightgrey;
-		color: #000000;
-	}
 	
 	.cheersTheme .button--more:active::after {
 		border-bottom-color: $cheersTheme-color;
@@ -1273,17 +1297,6 @@ main:hover {
 		color: $lightgrey;
 	}
 
-
-	.childhoodTheme .button--more:hover::after,
-	.childhoodTheme .button--more:focus::after {
-		border-bottom-color: $lightgrey;
-		color: #000000;
-	}
-
-	.childhoodTheme .button--more:hover {
-		background-color: $lightgrey;
-		color: #000000;
-	}
 	
 	.childhoodTheme .button--more:active::after {
 		border-bottom-color: $childhoodTheme-color;
@@ -1295,17 +1308,6 @@ main:hover {
 		color: $lightgrey;
 	}
 
-
-	.coffeeTheme .button--more:hover::after,
-	.coffeeTheme .button--more:focus::after {
-		border-bottom-color: $lightgrey;
-		color: #000000;
-	}
-
-	.coffeeTheme .button--more:hover {
-		background-color: $lightgrey;
-		color: #000000;
-	}
 	
 	.coffeeTheme .button--more:active::after {
 		border-bottom-color: $coffeeTheme-color;
@@ -1317,17 +1319,6 @@ main:hover {
 		color: $lightgrey;
 	}
 	
-
-	.dogTheme .button--more:hover::after,
-	.dogTheme .button--more:focus::after {
-		border-bottom-color: $lightgrey;
-		color: #000000;
-	}
-
-	.dogTheme .button--more:hover {
-		background-color: $lightgrey;
-		color: #000000;
-	}
 	
 	.dogTheme .button--more:active::after {
 		border-bottom-color: $dogTheme-color;
@@ -1340,17 +1331,6 @@ main:hover {
 	}
 	
 
-	.fantasyTheme .button--more:hover::after,
-	.fantasyTheme .button--more:focus::after {
-		border-bottom-color: $lightgrey;
-		color: #000000;
-	}
-
-	.fantasyTheme .button--more:hover {
-		background-color: $lightgrey;
-		color: #000000;
-	}
-	
 	.fantasyTheme .button--more:active::after {
 		border-bottom-color: $fantasyTheme-color;
 		color: $lightgrey;
@@ -1361,17 +1341,6 @@ main:hover {
 		color: $lightgrey;
 	}
 
-
-	.fitnessTheme .button--more:hover::after,
-	.fitnessTheme .button--more:focus::after {
-		border-bottom-color: $lightgrey;
-		color: #000000;
-	}
-
-	.fitnessTheme .button--more:hover {
-		background-color: $lightgrey;
-		color: #000000;
-	}
 	
 	.fitnessTheme .button--more:active::after {
 		border-bottom-color: $fitnessTheme-color;
@@ -1383,17 +1352,6 @@ main:hover {
 		color: $lightgrey;
 	}
 
-
-	.foodTheme .button--more:hover::after,
-	.foodTheme .button--more:focus::after {
-		border-bottom-color: $lightgrey;
-		color: #000000;
-	}
-
-	.foodTheme .button--more:hover {
-		background-color: $lightgrey;
-		color: #000000;
-	}
 	
 	.foodTheme .button--more:active::after {
 		border-bottom-color: $foodTheme-color;
@@ -1405,17 +1363,6 @@ main:hover {
 		color: $lightgrey;
 	}
 
-
-	.happyTheme .button--more:hover::after,
-	.happyTheme .button--more:focus::after {
-		border-bottom-color: $lightgrey;
-		color: #000000;
-	}
-
-	.happyTheme .button--more:hover {
-		background-color: $lightgrey;
-		color: #000000;
-	}
 	
 	.happyTheme .button--more:active::after {
 		border-bottom-color: $happyTheme-color;
@@ -1426,18 +1373,7 @@ main:hover {
 		background-color: $happyTheme-color;
 		color: $lightgrey;
 	}
-
-
-	.musicTheme .button--more:hover::after,
-	.musicTheme .button--more:focus::after {
-		border-bottom-color: $lightgrey;
-		color: #000000;
-	}
-
-	.musicTheme .button--more:hover {
-		background-color: $lightgrey;
-		color: #000000;
-	}
+	
 	
 	.musicTheme .button--more:active::after {
 		border-bottom-color: $musicTheme-color;
@@ -1450,17 +1386,6 @@ main:hover {
 	}
 
 
-	.natureTheme .button--more:hover::after,
-	.natureTheme .button--more:focus::after {
-		border-bottom-color: $lightgrey;
-		color: #000000;
-	}
-
-	.natureTheme .button--more:hover {
-		background-color: $lightgrey;
-		color: #000000;
-	}
-	
 	.natureTheme .button--more:active::after {
 		border-bottom-color: $natureTheme-color;
 		color: $lightgrey;
@@ -1471,17 +1396,6 @@ main:hover {
 		color: $lightgrey;
 	}
 
-
-	.painTheme .button--more:hover::after,
-	.painTheme .button--more:focus::after {
-		border-bottom-color: $lightgrey;
-		color: #000000;
-	}
-
-	.painTheme .button--more:hover {
-		background-color: $lightgrey;
-		color: #000000;
-	}
 	
 	.painTheme .button--more:active::after {
 		border-bottom-color: $painTheme-color;
@@ -1494,17 +1408,6 @@ main:hover {
 	}
 
 
-	.romanceTheme .button--more:hover::after,
-	.romanceTheme .button--more:focus::after {
-		border-bottom-color: $lightgrey;
-		color: #000000;
-	}
-
-	.romanceTheme .button--more:hover {
-		background-color: $lightgrey;
-		color: #000000;
-	}
-	
 	.romanceTheme .button--more:active::after {
 		border-bottom-color: $romanceTheme-color;
 		color: $lightgrey;
@@ -1516,17 +1419,6 @@ main:hover {
 	}
 
 
-	.somberTheme .button--more:hover::after,
-	.somberTheme .button--more:focus::after {
-		border-bottom-color: $lightgrey;
-		color: #000000;
-	}
-
-	.somberTheme .button--more:hover {
-		background-color: $lightgrey;
-		color: #000000;
-	}
-	
 	.somberTheme .button--more:active::after {
 		border-bottom-color: $somberTheme-color;
 		color: $lightgrey;
@@ -1538,17 +1430,6 @@ main:hover {
 	}
 
 
-	.stormTheme .button--more:hover::after,
-	.stormTheme .button--more:focus::after {
-		border-bottom-color: $lightgrey;
-		color: #000000;
-	}
-
-	.stormTheme .button--more:hover {
-		background-color: $lightgrey;
-		color: #000000;
-	}
-	
 	.stormTheme .button--more:active::after {
 		border-bottom-color: $stormTheme-color;
 		color: $lightgrey;
@@ -1559,17 +1440,6 @@ main:hover {
 		color: $lightgrey;
 	}
 
-
-	.technologyTheme .button--more:hover::after,
-	.technologyTheme .button--more:focus::after {
-		border-bottom-color: $lightgrey;
-		color: #000000;
-	}
-
-	.technologyTheme .button--more:hover {
-		background-color: $lightgrey;
-		color: #000000;
-	}
 	
 	.technologyTheme .button--more:active::after {
 		border-bottom-color: $technologyTheme-color;
@@ -1581,17 +1451,6 @@ main:hover {
 		color: $lightgrey;
 	}
 
-
-	.travelTheme .button--more:hover::after,
-	.travelTheme .button--more:focus::after {
-		border-bottom-color: $lightgrey;
-		color: #000000;
-	}
-
-	.travelTheme .button--more:hover {
-		background-color: $lightgrey;
-		color: #000000;
-	}
 	
 	.travelTheme .button--more:active::after {
 		border-bottom-color: $travelTheme-color;
@@ -1603,17 +1462,6 @@ main:hover {
 		color: $lightgrey;
 	}
 
-
-	.whimsyTheme .button--more:hover::after,
-	.whimsyTheme .button--more:focus::after {
-		border-bottom-color: $lightgrey;
-		color: #000000;
-	}
-
-	.whimsyTheme .button--more:hover {
-		background-color: $lightgrey;
-		color: #000000;
-	}
 	
 	.whimsyTheme .button--more:active::after {
 		border-bottom-color: $whimsyTheme-color;
